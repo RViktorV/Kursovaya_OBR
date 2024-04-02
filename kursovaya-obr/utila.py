@@ -42,12 +42,21 @@ def get_date(date):
 
 
 def git_num_carte(num):
+    """
+    Функция которая шифрует номер счета или номер карты по которой проводится транзакция
+    :param num: номер карты или счета
+    :return:будет наименоваине карты(или счет) и зашифрованный ее номер
+    """
     data_cart = num.split()
     if data_cart[0] == "Счет":
         return f"Счет **" + num[-4:]
     else:
         cart_name = " ".join(data_cart[:-1])
         return f"{cart_name} {data_cart[-1][4:6]} •• •••• {data_cart[-1][-4:]}"
+
+
+def get_converted_amount(cash):
+    return f"{cash['operationAmount']["amount"]} {cash['operationAmount']["currency"]["name"]}"
 
 
 
