@@ -66,9 +66,10 @@ def get_converted_amount(cash):
 
 def main(numbers_operations=5):
     """
-
-    :param numbers_operations:
-    :return:
+    Функция которая выводит на экран список из 5 последних выполненных клиентом операций в формате:
+    14.10.2018 Перевод организации
+    Visa Platinum 7000 79** **** 6361 -> Счет **9638
+    82771.72 руб.
     """
     file_json = loading_json('operations.json')
     sorting_operation = get_list_sorted(file_json)
