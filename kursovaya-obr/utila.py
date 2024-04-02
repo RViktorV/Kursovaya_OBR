@@ -56,7 +56,32 @@ def git_num_carte(num):
 
 
 def get_converted_amount(cash):
+    """
+    Функция выводит количство денег по операции и нименование валюты
+    :param cash: сумма переведенная по транзакции
+    :return:выводит сумму и в какой валюете
+    """
     return f"{cash['operationAmount']["amount"]} {cash['operationAmount']["currency"]["name"]}"
+
+
+def main(numbers_operations=5):
+    """
+
+    :param numbers_operations:
+    :return:
+    """
+    file_json = loading_json('operations.json')
+    sorting_operation = get_list_sorted(file_json)
+    sort_by_data = sorts_date(sorting_operation)
+    for operation in sort_by_data:
+        if numbers_operations == 0:
+            break
+        print(get_date(operation['date']), operation['description'])
+        if operation['description'] != "Открытие вклада":
+            print(git_num_carte(operation['from'])+' -> ', end='')
+        print(git_num_carte(operation['to']))
+        print(get_converted_amount(operation),'\n')
+        numbers_operations -= 1
 
 
 
