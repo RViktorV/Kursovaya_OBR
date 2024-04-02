@@ -41,7 +41,7 @@ def get_date(date):
     return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
 
 
-def git_num_carte(num):
+def get_num_carte(num):
     """
     Функция которая шифрует номер счета или номер карты по которой проводится транзакция
     :param num: номер карты или счета
@@ -79,8 +79,8 @@ def main(numbers_operations=5):
             break
         print(get_date(operation['date']), operation['description'])
         if operation['description'] != "Открытие вклада":
-            print(git_num_carte(operation['from'])+' -> ', end='')
-        print(git_num_carte(operation['to']))
+            print(get_num_carte(operation['from'])+' -> ', end='')
+        print(get_num_carte(operation['to']))
         print(get_converted_amount(operation),'\n')
         numbers_operations -= 1
 
