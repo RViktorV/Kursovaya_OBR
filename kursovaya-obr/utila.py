@@ -36,8 +36,19 @@ def get_date(date):
     """
     Функция которая выдает дату операции
     :param date: дада из файла operratuons.json
-    :return: дату в формате 14.10.2018
+    :return: дата в формате 14.10.2018
     """
     return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
+
+
+def git_num_carte(num):
+    data_cart = num.split()
+    if data_cart[0] == "Счет":
+        return f"Счет **" + num[-4:]
+    else:
+        cart_name = " ".join(data_cart[:-1])
+        return f"{cart_name} {data_cart[-1][4:6]} •• •••• {data_cart[-1][-4:]}"
+
+
 
 
