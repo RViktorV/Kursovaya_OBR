@@ -1,6 +1,6 @@
 import os
 from config import ROOT_DIR
-from kursovaya_obr.utils import loading_json, get_list_sorted, sorts_date, get_date, get_num_carte, get_converted_amount
+from kursovaya_obr.utils import loading_json, get_list_sorted, sorts_date, get_date, get_num_carte, get_converted_amount, main
 
 def test_loading_json():
     TEST_PATH = os.path.join(ROOT_DIR, 'tests', 'test.json')
@@ -88,3 +88,5 @@ def test_get_converted_amount():
     "description": "Открытие вклада",
     "to": "Счет 41421565395219882431"
   }) == '48223.05 руб.'
+
+

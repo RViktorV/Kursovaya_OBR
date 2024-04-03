@@ -71,9 +71,7 @@ def main(numbers_operations=5):
     <откуда> -> <куда>
     <сумма перевода> <валюта>
     """
-    file_json = loading_json('operations.json')
-    sorting_operation = get_list_sorted(file_json)
-    sort_by_data = sorts_date(sorting_operation)
+    sort_by_data = sorts_date(get_list_sorted(loading_json('operations.json')))
     for operation in sort_by_data:
         if numbers_operations == 0:
             break
@@ -83,7 +81,5 @@ def main(numbers_operations=5):
         print(get_num_carte(operation['to']))
         print(get_converted_amount(operation),'\n')
         numbers_operations -= 1
-
-
 
 
