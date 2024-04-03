@@ -34,6 +34,19 @@ def test_get_list_sorted():
  },
 ]
 
+# test_date = [
+# {
+#     "id": 41428829,
+#     "state": "EXECUTED",
+#     "date": "2019-07-03T18:35:29.512364"
+#     },
+#     {
+#     "id": 441945886,
+#     "state": "EXECUTED",
+#     "date": "2019-08-26T10:50:58.294041"
+#     }
+#
+# ]
 test_date = [
 {
     "id": 41428829,
@@ -47,7 +60,6 @@ test_date = [
     }
 
 ]
-
 
 def test_sorts_date():
     assert sorts_date(test_date) == [
@@ -73,11 +85,24 @@ def test_get_num_carte():
     assert get_num_carte("Счет 64686473678894779589") == 'Счет **9589'
 
 
+# def test_get_converted_amount():
+#     assert get_converted_amount({
+#     "id": 587085106,
+#     "state": "EXECUTED",
+#     "date": "2018-03-23T10:45:06.972075",
+#     "operationAmount": {
+#       "amount": "48223.05",
+#       "currency": {
+#         "name": "руб.",
+#         "code": "RUB"
+#       }
+#     },
+#     "description": "Открытие вклада",
+#     "to": "Счет 41421565395219882431"
+#   }) == '48223.05 руб.'
+
 def test_get_converted_amount():
     assert get_converted_amount({
-    "id": 587085106,
-    "state": "EXECUTED",
-    "date": "2018-03-23T10:45:06.972075",
     "operationAmount": {
       "amount": "48223.05",
       "currency": {
@@ -88,5 +113,3 @@ def test_get_converted_amount():
     "description": "Открытие вклада",
     "to": "Счет 41421565395219882431"
   }) == '48223.05 руб.'
-
-
