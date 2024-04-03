@@ -8,7 +8,7 @@ def loading_json(file_json):
     :param file_json:
     :return: выводит список словарей
     """
-    with open(file_json, "r") as file:
+    with open(file_json, "r", encoding="utf-8") as file:
         return json.load(file)
 
 
